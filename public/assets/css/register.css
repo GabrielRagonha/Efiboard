@@ -1,0 +1,119 @@
+.register {
+    justify-content: center;
+    display: flex;
+    max-width: 100%;
+    align-items: center;
+    background-color: #FFFFFF;
+    min-height: 100vh;
+}
+
+.register > * {
+    flex: 1;
+}
+
+.register-left-figure {
+    display: flex;
+    max-width: 100%;
+    height: auto;
+    min-height: 100vh;
+    max-height: 100%;
+}
+
+.register-left-image {
+    object-fit: cover;
+    width: 100%;
+    min-height: 100vh;
+    max-height: 100%;
+}
+
+.register-right {
+    padding: 0 70px;
+    max-width: calc(100% - 140px);
+    position: relative;
+    min-height: 1024px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.register-right-content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 100%;
+}
+
+.register-right-figure {
+    display: flex;
+    justify-content: center;
+}
+
+.register-right-logo {
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.register-right-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.register-title {
+    color: #5778b8;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.register-desc {
+    color: #ADADAD;
+    font-size: 18px;
+    line-height: normal;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.register-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.register-label {
+    color: #323232;
+    font-size: 18px;
+    line-height: normal;
+}
+
+.register-input  {
+    border-radius: 5px;
+    border: 1px solid #C2C2C2;
+    height: 50px;
+    padding-inline: 10px;
+}
+
+.register-submit {
+    color: #FFF;
+    font-size: 22px;
+    font-weight: 700;
+    border-radius: 5px;
+    height: 60px;
+    background: #5778B8;
+}
+
+.register-copyright {
+    position: absolute;
+    bottom: 32px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #ADADAD;
+    font-size: 18px;
+    line-height: normal;
+}
