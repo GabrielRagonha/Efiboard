@@ -13,6 +13,10 @@ class ClickupService
         $this->headers = [
             'authorization' => env('USER_DEFAULT')
         ];
+
+        $user = $this->getUser();
+
+        $this->userId = $user['user']['id'];
     }
 
     public function getUser(): mixed
@@ -29,14 +33,28 @@ class ClickupService
         }
     }
 
-    public function getTasks()
+    public function getTasks($status)
     {
         try {
-            $taskResponse = Http::withHeaders($this->headers)->get('https://api.clickup.com/api/v2/team/' . env('WORKSPACE_ID') . '/task?subtasks=true&assignees[]=' . $this->userId . '&include_closed=true&statuses[]=Closed');
+            $page = 0   ;
+            $tasksData = [];
+            $allTasks = [];
 
-            $tasksData = $taskResponse->json();
+            while (true):
+                $taskResponse = Http::withHeaders($this->headers)->get('https://api.clickup.com/api/v2/team/' . env('WORKSPACE_ID') . '/task?page='. $page .'&subtasks=true&assignees[]=' . $this->userId . '&include_closed=true&statuses[]='. $status);
 
-            return $tasksData;
+                $tasksData = $taskResponse->json();
+
+                $allTasks = array_merge($allTasks, $tasksData['tasks']);
+
+                if ($tasksData['last_page'] === true) {
+                    break;
+                }
+
+                $page += 1;
+            endwhile;
+                
+            return $allTasks;
         } catch (\Exception $e) {
             return $e->getMessage();
         }
