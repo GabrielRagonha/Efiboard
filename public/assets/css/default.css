@@ -1,0 +1,81 @@
+:root {
+    --EF-Black: #000000;
+    --EF-Black-2: #222222;
+    --EF-Black-3: #131313;
+
+    --EF-White: #ffffff;
+    --EF-White-2: #f1f1f1;
+
+    --EF-Gray: #e5e5e5;
+    --EF-Gray-2: #d8d8d8;
+    --EF-Gray-3: #c2c2c2;
+
+    --EF-Blue: #5778b8;
+
+    --EF-ToDo: #87909e;
+    --EF-Pending: #dc646a;
+    --EF-InProgress: #40a6e6;
+    --EF-InReview: #bba399;
+    --EF-Readjust: #e78945;
+    --EF-Stopped: #7f77f1;
+    --EF-Closed: #33a069;
+}
+
+body {
+    background: var(--EF-Gray);
+}
+
+.main {
+    padding-top: 80px;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+    background: var(--EF-White);
+    padding-block: 12px;
+}
+
+.navbar {
+    display: flex;
+    max-width: calc(100% - 64px);
+    width: 1440px;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-logo-figure {
+    display: flex;
+}
+
+.navbar-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+}
+
+.navbar-user-figure {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    overflow: hidden;
+    width: 40px;
+    height: 40px;
+    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode */
+body.dark {
+    background: var(--EF-Black-3);
+}
+
+body.dark .header {
+    background: var(--EF-Black-2);
+}
