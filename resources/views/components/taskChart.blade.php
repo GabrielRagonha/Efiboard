@@ -1,18 +1,16 @@
 <section class="chart">
     <div class="chart-container">
-        <div class="chart-caption">
-            <ul>
-                <li>
-                    <span>Tarefas abertas</span>
-                </li>
+        <ul class="chart-caption">
+            <li class="chart-caption-item">
+                <span class="chart-caption-name">Tarefas abertas</span>
+            </li>
 
-                <li>
-                    <span>Tarefas finalizadas</span>
-                </li>
-            </ul>
-        </div>
+            <li class="chart-caption-item">
+                <span class="chart-caption-name">Tarefas finalizadas</span>
+            </li>
+        </ul>
 
-        <div>
+        <div class="chart-content">
 
         </div>
     </div>
