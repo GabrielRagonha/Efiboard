@@ -17,13 +17,4 @@
         @include('components.taskDashboard')
         @include('components.taskChart')
     </div>
-
-    <section>
-        {{-- ROTA GET USER --}}
-        <p>{{$userData['id']}}</p>
-        <p>{{$userData['username']}}</p>
-        <p>{{$userData['email']}}</p>
-        <p style="width: 20px; height: 20px; border-radius: 100%; background-color:{{$userData['color']}}"></p>
-        <p>{{$userData['initials']}}</p>
-    </section>
 @endsection
