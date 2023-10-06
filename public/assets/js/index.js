@@ -1,5 +1,5 @@
 function themeVerify() {
-    const themeBtn = document.querySelector("#navbar-theme");
+    const themeBtn = document.querySelector("#theme");
     const body = document.querySelector("body");
     let theme = localStorage.getItem("theme");
 
@@ -17,7 +17,7 @@ function themeVerify() {
 }
 
 function themeToggle() {
-    const themeBtn = document.querySelector("#navbar-theme");
+    const themeBtn = document.querySelector("#theme");
     const body = document.querySelector("body");
 
     themeBtn.addEventListener("click", function () {
