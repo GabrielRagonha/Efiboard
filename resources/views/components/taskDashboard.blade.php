@@ -3,21 +3,33 @@
         <div class="dashboard-filter">
             <ul class="dashboard-filter-list">
                 <li class="dashboard-filter-item">
-                    <button class="dashboard-filter-button">
-                        Todas
-                    </button>
+                    <input class="dashboard-filter-radio" id="all" type="radio" name="filter">
+
+                    <div class="dashboard-filter-box">
+                        <label for="all" class="dashboard-filter-button" checked>
+                            Todas
+                        </label>
+                    </div>
                 </li>
 
                 <li class="dashboard-filter-item">
-                    <button class="dashboard-filter-button">
-                        Abertas
-                    </button>
+                    <input class="dashboard-filter-radio" id="open" type="radio" name="filter">
+
+                    <div class="dashboard-filter-box">
+                        <label for="open" class="dashboard-filter-button">
+                            Abertas
+                        </label>
+                    </div>
                 </li>
 
                 <li class="dashboard-filter-item">
-                    <button class="dashboard-filter-button">
-                        Fechadas
-                    </button>
+                    <input class="dashboard-filter-radio" id="closed" type="radio" name="filter">
+
+                    <div class="dashboard-filter-box">
+                        <label for="closed" class="dashboard-filter-button">
+                            Fechadas
+                        </label>
+                    </div>
                 </li>
             </ul>
 
@@ -105,11 +117,14 @@
                                             @if (isset($assignee['profilePicture']))
                                                 <figure class="dashboard-table-body-item-figure">
                                                     <img class="dashboard-table-body-item-image" width="23"
-                                                        height="23" alt="Imagem do responsável"
+                                                        height="23"
+                                                        alt="Imagem de perfil {{ $assignee['username'] }}"
+                                                        title="{{ $assignee['username'] }}"
                                                         src="{{ $assignee['profilePicture'] }}">
                                                 </figure>
                                             @else
                                                 <span class="dashboard-table-body-item-initials"
+                                                    title="{{ $assignee['username'] }}"
                                                     style="background: {{ $assignee['color'] }}">
                                                     {{ $assignee['initials'] }}
                                                 </span>
@@ -121,7 +136,29 @@
                                 </td>
 
                                 <td class="dashboard-table-body-item creator">
-                                    {{ $task['creator']['username'] }}
+                                    @if (isset($task['creator']['profilePicture']))
+                                        <figure class="dashboard-table-body-item-figure">
+                                            <img class="dashboard-table-body-item-image" width="23" height="23"
+                                                alt="Imagem de perfil {{ $task['creator']['username'] }}"
+                                                title="{{ $task['creator']['username'] }}"
+                                                src="{{ $task['creator']['profilePicture'] }}">
+                                        </figure>
+                                    @else
+                                        <span class="dashboard-table-body-item-initials"
+                                            style="background: {{ $assignee['color'] }}"
+                                            title="{{ $task['creator']['username'] }}">
+
+                                            @php
+                                                $names = explode(' ', $task['creator']['username']);
+                                            @endphp
+
+                                            @if (count($names) >= 2)
+                                                {{ substr($names[0], 0, 1) . substr($names[1], 0, 1) }}
+                                            @else
+                                                {{ substr($names[0], 0, 1) }}
+                                            @endif
+                                        </span>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach
